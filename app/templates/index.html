@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <form action="/" method="post">
+        <label for="context">Context:</label><br>
+        <textarea id="context" name="context" rows="6" required>{{ context or "" }}</textarea><br>
+
+        <label for="question">Question:</label><br>
+        <input type="text" id="question" name="question" required value="{{ question or "" }}"><br>
+
+        <button type="submit">Get Answer</button>
+    </form>
+    {% if answer %}
+    <div class="answer-container">
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
